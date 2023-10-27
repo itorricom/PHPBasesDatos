@@ -23,3 +23,5 @@ $setnames = $mysqli->prepare("SET NAMES 'utf8'");
 $setnames->execute();
 
 var_dump($setnames);
+
+?>
