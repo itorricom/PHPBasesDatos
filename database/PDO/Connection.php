@@ -1,11 +1,14 @@
 <?php
 
+namespace Database\PDO;
+
 class Connection{
+    
     private static $instance;
     private $connection; 
 
     private function __construct(){
-        $this->make_conection();
+        $this->make_connection();
     }
 
     public static function getInstance(){
@@ -14,21 +17,23 @@ class Connection{
         return self::$instance;
     }
 
-    private function make_conection()
+    public function get_database_instance(){
+        return $this->connection;
+    }
+
+    private function make_connection()
     {
         $server = "localhost";
         $database = "finanzas_personales";
         $username = "root";
         $password = "";
 
-        $mysqli = new mysqli($server, $username, $password, $database);
-        //Comprobar conexion de manera orientada a obejetos
-        if ($mysqli->connect_errno)
-        die("Fallos la conexion: {$mysqli->connect_error}");
-        //Esto noy ayuda a poder usar cualquier caracter de nuestras consultas
-        $setnames = $mysqli->prepare("SET NAMES 'utf8'");
+        $conexion = new \PDO("mysql:host=$server ; dbname=$database", $username, $password);
+        
+        $setnames = $conexion->prepare("SET NAMES 'utf8'");
         $setnames->execute();
-        $this->connection = $mysqli;
+
+        $this->connection = $conexion;
     }
 
 }
