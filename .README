@@ -12,3 +12,9 @@ git push -u origin main
 git remote add origin https://github.com/itorricom/PHPBasesDatos.git
 git branch -M main
 git push -u origin main
+
+````
+Driver mysqli únicamente soporta conexiones con gestores de base de datos MySQL, 
+Para conexión con otros gestores como por ejemplo PostgreSQL tenemos PDO.
+
+````

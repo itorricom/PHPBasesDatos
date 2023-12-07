@@ -10,4 +10,5 @@ $setNames = $connection->prepare("SET NAMES 'utf8'");
 $setNames->execute();
 
 var_dump($setNames);
+
 ?>
