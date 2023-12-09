@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class IncomesController{
+class WithdrawalsController{
     /* 7 METODOS  */
     //1. Muestra una lista de este recurso
     public function index(){}
